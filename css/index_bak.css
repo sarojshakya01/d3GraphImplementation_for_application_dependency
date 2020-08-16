@@ -1,0 +1,628 @@
+body {
+  margin: 0px;
+}
+#full-container {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+
+/* ############################## SEARCHBOX ######################################### */
+
+.user-search-box {
+  height: 700px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  background-color: white;
+  border: 1px solid #c7dddb;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  z-index: 1;
+  margin-top: 13px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #bcbcc4;
+  opacity: 0.5;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #bcbcc4;
+  opacity: 0.5;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #bcbcc4;
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #bcbcc4;
+  opacity: 0.5;
+}
+
+.user-search-box .input-box {
+  width: 100%;
+  height: 120px;
+  top: 0;
+  background-color: #e8efee;
+}
+
+.user-search-box .result-box {
+  height: 580px;
+}
+
+.tooltip.close-button-wrapper {
+  padding: 2px;
+}
+
+.user-search-box .close-button-wrapper i {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  color: #756666;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.user-search-box input {
+  color: gray !important;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  padding: 0;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: all 0.3s;
+}
+
+.user-search-box input:focus {
+  border-bottom: 1px solid #26a69a;
+  box-shadow: 0 1px 0 0 #26a69a;
+}
+
+.user-search-box .result-header {
+  background-color: white;
+  font-weight: 700;
+  padding: 12px;
+  color: gray;
+  border-top: 2px solid #d3e8e5;
+  border-bottom: 1px solid #d3e8e5;
+}
+
+.user-search-box .result-list {
+  position: absolute;
+  max-height: 535px;
+  min-width: 100%;
+  overflow: auto;
+  overflow-y: scroll;
+}
+
+.user-search-box .buffer {
+  width: 100%;
+  height: 400px;
+}
+
+.user-search-box .list-item {
+  clear: both;
+  background-color: white;
+  position: relative;
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #d3e8e5;
+}
+
+.user-search-box .list-item a {
+  display: inline;
+  margin: 0;
+}
+
+.user-search-box .list-item .image-wrapper {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+}
+
+.user-search-box .list-item .image {
+  width: 35px;
+  height: 35px;
+  margin-left: 2px;
+  margin-top: 2px;
+  border-radius: 5px;
+}
+
+.user-search-box .list-item .description {
+  padding: 2px;
+  padding-left: 0px;
+  float: left;
+  width: 170px;
+  margin-top: 2px;
+}
+
+.user-search-box .list-item .buttons {
+  padding: 2px;
+  padding-left: 0px;
+  float: left;
+  width: auto;
+}
+.user-search-box .list-item .description .name {
+  font-size: 15px;
+  color: #aa1414;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1px;
+}
+
+.user-search-box .list-item .description .type {
+  color: #91a4a5;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 3px;
+  padding: 0;
+}
+.user-search-box .list-item .btn-locate {
+  margin-left: 50px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.user-search-box .list-item .btn-view-machine {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.user-search-box .list-item .btn-search-box {
+  font-size: 10px;
+}
+
+.user-search-box .close-button-wrapper i:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.user-search-box .input-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.user-search-box .input-bottom-placeholder {
+  margin-top: -16px;
+  color: #bcbcc4;
+  letter-spacing: 1px;
+}
+
+/* ############################### Tooltip css ########################### */
+
+.customTooltip-wrapper {
+  font-family: "Roboto", sans-serif;
+  opacity: 0;
+  display: none;
+  position: absolute;
+}
+
+.customTooltip {
+  background: white;
+  box-shadow: 0 0 5px #999999;
+  color: #333;
+  position: absolute;
+  font-size: 12px;
+  text-align: center;
+  z-index: 10;
+  text-align: left;
+  width: 170px;
+  border-radius: 2px;
+}
+
+.tooltip-hr {
+  width: 70px;
+  background-color: #91a4a5;
+  height: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -17px;
+  margin-bottom: 25px;
+}
+
+.tooltip-desc {
+  padding-left: 10px;
+  overflow: auto;
+}
+
+.tooltip-desc .name {
+  color: #962828;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  text-decoration: none;
+}
+
+.tooltip-desc .name:hover {
+  text-decoration: underline;
+}
+
+.tooltip-desc .machinelist {
+  color: #59525b;
+  letter-spacing: 1px;
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  margin-top: 0px;
+}
+
+.tooltip-desc .type {
+  color: #91a4a5;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 2px;
+  margin-top: 7px;
+}
+
+.tooltip-desc .office {
+  color: #91a4a5;
+  line-height: 160%;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: -10px;
+  margin-top: -5px;
+}
+
+.tooltip-desc .tags-wrapper .title {
+  float: left;
+}
+
+.tooltip-desc .tags-wrapper .tags {
+  float: left;
+}
+
+.bottom-tooltip-hr {
+  width: 100%;
+  background-color: #58993e;
+  height: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -17px;
+}
+
+.btn-tooltip-department {
+  margin-top: 20px;
+}
+
+/* ####################################### TAGS ###################################### */
+
+.tags {
+  list-style: none;
+  margin-top: -9px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tags-wrapper {
+  font-size: 2.28rem;
+  margin-top: 10px;
+}
+
+.tags-wrapper .title {
+  color: #91a4a5;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.tags li {
+  float: left;
+  margin-top: -20px;
+}
+
+.tag {
+  font-size: 11px;
+  background: #e1ecf4;
+  border-radius: 2px;
+  color: #39739d;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 5px 0 5px;
+  position: relative;
+  margin: 0 5px 5px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+/* #############################   Buttons  ############################################*/
+
+/* .btn {
+  border: none;
+  border-radius: 2px;
+  height: 36px;
+  line-height: 36px;
+  outline: 0;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: #fff;
+  background-color: #26a69a;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+} */
+
+.btn {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-image: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.btn.disabled {
+  background-color: #dfdfdf !important;
+  box-shadow: none;
+  color: #9f9f9f !important;
+  cursor: default;
+}
+
+/* .btn:hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+} */
+
+.btn:focus,
+.btn:hover {
+  text-decoration: none;
+  color: #333;
+}
+
+.btn:active {
+  background-image: none;
+}
+
+.btn.disabled:hover {
+  box-shadow: none;
+}
+
+.btn-action {
+  position: absolute;
+
+  height: 25px;
+  margin-bottom: 2px;
+  padding: 0;
+  background: #ccc;
+  color: #555;
+  z-index: 1;
+}
+
+.btn-top-right {
+  width: 25px;
+  right: 21px;
+}
+
+.btn-fullscreen {
+  top: 20px;
+}
+
+.btn-search {
+  top: 50px;
+}
+
+.btn-expand {
+  top: 80px;
+}
+
+.btn-show-curr-item {
+  top: 110px;
+}
+
+.btn-back {
+  top: 140px;
+}
+
+.btn-cluster-view {
+  position: absolute;
+  right: 5px;
+  padding: 2px;
+  background: #ccc;
+  color: #555;
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  line-height: 0;
+}
+
+/* .btn-action:focus {
+  outline: 0;
+  background-color: #aa1414;
+}
+
+.btn-action:hover {
+  background-color: #490b0b;
+} */
+
+.btn-action i {
+  font-size: 14px;
+}
+
+.btn-action .icon {
+  background-color: #c19e45;
+  padding: 5px 6px 5px 6px;
+  border-radius: 11px;
+  margin-right: -7px;
+}
+
+/* ############################################## SVG ################################# */
+
+.nodeHasChildren {
+  fill: white;
+}
+
+.nodeDoesNotHaveChildren {
+  fill: white;
+}
+
+.nodeRepresentsCurrentItem {
+  stroke: Chartreuse;
+  stroke-width: 3;
+}
+
+text {
+  fill: dimgray;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.link-strong {
+  fill: none;
+  stroke: rgb(216 212 212);
+  stroke-width: 2.5px;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node-collapse {
+  stroke: grey;
+}
+
+.node-collapse-right-rect {
+  fill: #70c645;
+  stroke: #70c645;
+}
+
+.node text {
+  fill: white;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 10px;
+}
+
+.node circle {
+  stroke-width: 1px;
+  stroke: #70c645;
+  fill: #70c645;
+}
+
+.node-group .item-name {
+  fill: #962828;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.node-group .emp-position-name {
+  fill: #59525b;
+  font-size: 11px;
+}
+
+.node-group .emp-area {
+  fill: #91a4a5;
+  font-size: 10px;
+}
+
+.node-group .children-count,
+.node-group .children-count-icon {
+  fill: #91a4a5;
+  font-size: 12px;
+}
+
+.chart {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+#svgSubChart {
+  flex-wrap: wrap;
+}
+
+.cluster .active {
+  border: #26a69a;
+}
+
+.cluster.active.card {
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.card.active {
+  margin-right: 5px;
+}
+
+#svgSubChart .card:nth-child(6) {
+  margin-right: 5px;
+}
+
+#svgSubChart .card {
+  cursor: pointer;
+}
+
+.cluster.card.selected {
+  background-color: #e3e6e6;
+}
+
+.error {
+  background-color: red;
+  text-align: center;
+}
